@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Login from "./components/login/index";
+import Home from "./components/home/index";
+import ProtectedRoute from "./components/protectedRoute";
+import { Fragment, useState } from "react";
+import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = () => {
+  const [user, setUser] = useState(null);
+  const userSet = (me)=>{
+    console.log("me",me);
+    setUser(me);
+  }
+    return (
+    <Fragment>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login setUser={userSet} user={user}/>} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute user={user}>
+                <Home user={user}/>
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </Fragment>
   );
-}
+};
 
 export default App;
