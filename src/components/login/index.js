@@ -13,7 +13,7 @@ const Login = ({setUser, user}) => {
     if (user){
       navigate('/')
     }
-  },[user])
+  },[user, navigate])
   const onChangeFormValuesHandler = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };

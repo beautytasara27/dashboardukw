@@ -3,7 +3,7 @@ import Login from "./components/login/index";
 import Home from "./components/home/index";
 import ProtectedRoute from "./components/protectedRoute";
 import { Fragment, useState } from "react";
-import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 const App = () => {
   const [user, setUser] = useState(null);
