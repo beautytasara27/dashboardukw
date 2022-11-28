@@ -6,7 +6,7 @@ const Authenticate = async ({ Username, Password, Nonce }) => {
   };
   console.log("body", JSON.stringify(requestBody));
   try {
-    const response = await fetch("http://authentication.somee.com/api/v1/Users/Auth", {
+    const response = await fetch("https://authentication.somee.com/api/v1/Users/Auth", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
